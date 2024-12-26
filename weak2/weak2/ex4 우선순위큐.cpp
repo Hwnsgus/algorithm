@@ -33,19 +33,19 @@ void init(HeapType* h) {
 	h->heap_size = 0;
 }
 
-void insert_max_heap(HeapType* h, element a) { //HeapTyipe 은 배열, 포인터 사용 element 는 int 자료형
+void insert_max_heap(HeapType* h, element item) { //HeapTyipe 은 배열, 포인터 사용 element 는 int 자료형
 	int i;
 	i = ++(h->heap_size);
 
 	//완전이진트리의 로직
-	while ((i != 1) && a.key > h->heap[i / 2].key) {//i/2 => 부모노드의 주소 a.key 들어온 자식 노드의 값과 i/2로 나온 부모 노드의 크기를 비교, 반복문 사용
+	while ((i != 1) && item.key > h->heap[i / 2].key) {//i/2 => 부모노드의 주소 a.key 들어온 자식 노드의 값과 i/2로 나온 부모 노드의 크기를 비교, 반복문 사용
 		h->heap[i] = h->heap[i / 2];
 		i = i / 2;
 	}
-	h->heap[i] = a; // 반복문이 끝나고 부모 노드가 트리에 대입됨
+	h->heap[i] = item; // 반복문이 끝나고 부모 노드가 트리에 대입됨
 }
 
-void delete_max_heap(HeapType* h, element) {
+void delete_max_heap(HeapType* h) {
 	int parent, child;
 	element item, temp;
 	item = h->heap[1];
@@ -84,8 +84,11 @@ int main() {
 	insert_max_heap(heap, e2);
 	insert_max_heap(heap, e3);
 	insert_max_heap(heap, tmp);
-
+	
 	//힙의 삭제, 1번 인덱스 값 인출
 	e4 = delete_max_heap(heap);
 	printf("%d\n", e4.key);
+
+	free(heap);
+	return 0;
 }
