@@ -44,8 +44,34 @@ void insert_max_heap(HeapType* h, element a) { //HeapTyipe 은 배열, 포인터
 	}
 	h->heap[i] = a; // 반복문이 끝나고 부모 노드가 트리에 대입됨
 }
+
+void delete_max_heap(HeapType* h, element) {
+	int parent, child;
+	element item, temp;
+	item = h->heap[1];
+	temp = h->heap[(h->heap_size)--];//h->heap_size = h가 가리키는 heap의 사이즈, 배열의 마지막 데이터
+	
+	parent = 1;
+	child = 2;
+
+	while (child <= h->heap_size) {
+		if ((child< h->heap_size) && (h->heap[child].key < h->heap[child + 1].key)) child++;
+		if (temp.key >= h->heap[child].key) break;
+
+		h->heap[parent] = h->heap[child]; // temp 아래로 내려감
+
+		parent = child;
+		child = child * 2;
+		
+	}
+	h->heap[parent] = temp;
+	return item;
+}
+
 int main() {
 	element e1 = { 10 }, e2 = { 5 }, e3 = { 30 };
+	element tmp = { 40 };
+	element e4;
 	HeapType* heap;
 
 	heap = create();  //메모리할당
@@ -55,4 +81,11 @@ int main() {
 
 	//힙에 데이터추가
 	insert_max_heap(heap, e1);
+	insert_max_heap(heap, e2);
+	insert_max_heap(heap, e3);
+	insert_max_heap(heap, tmp);
+
+	//힙의 삭제, 1번 인덱스 값 인출
+	e4 = delete_max_heap(heap);
+	printf("%d\n", e4.key);
 }
