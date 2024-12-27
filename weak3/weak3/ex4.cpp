@@ -66,6 +66,8 @@ int main() {
 	insert_edge(g, 2, 3);
 	print_adj_mat(g);
 
+	//정점을 입력 받아 차수를 구하는 함수 getGreed
+
 	free(g);
 	
 }
