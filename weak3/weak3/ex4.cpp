@@ -30,10 +30,23 @@ void insert_vertex(GraphType* g, int v) {
 }
 
 void insert_edge(GraphType* g, int start, int end) {
-
+	if (start>=g->n|| end >= g->n){
+		printf("그래프 정점 번호 오류");
+		return;
+	}
+	g->adj_mat[start][end] = 1;
+	g->adj_mat[end][start] = 1;
 }
 
 void print_adj_mat(GraphType* g) {
+	for (int i = 0; i < g->n; i++)
+	{
+		for (int j = 0; j < g->n; j++)
+		{
+			printf("%2d", g->adj_mat[i][j]);
+		}
+		printf("\n");
+	}
 
 }
 
