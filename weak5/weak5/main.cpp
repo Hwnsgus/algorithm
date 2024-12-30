@@ -13,6 +13,7 @@ typedef struct GraphType {
 }GraphType;
 
 void init(GraphType* g) {
+	int v;
 	g->n = 0; // 주소 값 g가 가르키는 n에 0을 대입
 	for (int i = 0; i < MAX_VERTICES; i++) {
 		g->adj_list[i] = NULL;
@@ -35,6 +36,20 @@ void insert_edge(GraphType* g, int u, int v) {
 	g->adj_list[u] = node;
 }
 
+void print_adj_list(GraphType* g) {
+	for (int i = 0; i < g->n; i++)
+	{
+		GraphNode* p = g->adj_list[i];
+		printf("정점 %d의 인접 리스트", i);
+		while (p!=NULL)
+		{
+			printf("-> %d", p->vertex);
+			p = p->link;
+		}
+		printf("\n");
+	}
+}
+
 
 int main() {
 	GraphType* g;
@@ -46,5 +61,19 @@ int main() {
 	{
 		insert_vertex(g, i);
 	}
-	insert_edge(g, 0, 1);
+	insert_edge(g, 0, 1); //0과 1이 이어져 있음
+	insert_edge(g, 1, 0); //0과 1이 이어져 있음
+	insert_edge(g, 0, 2);
+	insert_edge(g, 2, 0);
+	insert_edge(g, 0, 3);
+	insert_edge(g, 3, 0);
+	insert_edge(g, 1, 2);
+	insert_edge(g, 2, 1);
+	insert_edge(g, 2, 3);
+	insert_edge(g, 3, 2);
+	print_adj_list(g);
+	free(g);
+	return 0;
+
+
 }
