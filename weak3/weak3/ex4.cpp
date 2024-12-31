@@ -70,7 +70,7 @@ int main() {
 	g = (GraphType*)malloc(sizeof(GraphType));
 	init(g); // 그래프 초기화
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		insert_vertex(g, i);
 	}

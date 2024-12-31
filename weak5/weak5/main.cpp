@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include<stdlib.h>
 #define MAX_VERTICES 5
+#define TRUE =1
+
+
+int visited[MAX_VERTICES];
 
 typedef struct GraphNode {
 	int vertex;
@@ -13,8 +17,7 @@ typedef struct GraphType {
 }GraphType;
 
 void init(GraphType* g) {
-	int v;
-	g->n = 0; // ÁÖ¼Ò °ª g°¡ °¡¸£Å°´Â n¿¡ 0À» ´ëÀÔ
+	g->n = 0; // ì£¼ì†Œ ê°’ gê°€ ê°€ë¥´í‚¤ëŠ” nì— 0ì„ ëŒ€ì…
 	for (int i = 0; i < MAX_VERTICES; i++) {
 		g->adj_list[i] = NULL;
 	}
@@ -22,11 +25,12 @@ void init(GraphType* g) {
 
 void insert_vertex(GraphType* g, int v) {
 	if (((g->n) + 1) > MAX_VERTICES) {
-		printf("±×·¡ÇÁ Á¤Á¡ÀÇ °³¼ö ÃÊ°ú\n");
+		printf("ê·¸ë˜í”„ ì •ì ì˜ ê°œìˆ˜ ì´ˆê³¼\n");
 		return;
 	}
 	g->n++;
 }
+
 
 void insert_edge(GraphType* g, int u, int v) {
 	GraphNode* node;
@@ -36,19 +40,19 @@ void insert_edge(GraphType* g, int u, int v) {
 	g->adj_list[u] = node;
 }
 
-void print_adj_list(GraphType* g) {
-	for (int i = 0; i < g->n; i++)
+void dfs_list(GraphType* g, int v) {
+	GraphNode* w;
+	visited[v] = TRUE;
+	printf("ì •ì  %d ->", v);
+	for (w = g->adj_list[v];  w; w = w->link)
 	{
-		GraphNode* p = g->adj_list[i];
-		printf("Á¤Á¡ %dÀÇ ÀÎÁ¢ ¸®½ºÆ®", i);
-		while (p!=NULL)
+		if (!visited[w->vertex])
 		{
-			printf("-> %d", p->vertex);
-			p = p->link;
+			dfs_list(g, w->vertex);
 		}
-		printf("\n");
 	}
 }
+
 
 
 int main() {
@@ -57,12 +61,12 @@ int main() {
 
 	init(g);
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		insert_vertex(g, i);
 	}
-	insert_edge(g, 0, 1); //0°ú 1ÀÌ ÀÌ¾îÁ® ÀÖÀ½
-	insert_edge(g, 1, 0); //0°ú 1ÀÌ ÀÌ¾îÁ® ÀÖÀ½
+	insert_edge(g, 0, 1);
+	insert_edge(g, 1, 0);
 	insert_edge(g, 0, 2);
 	insert_edge(g, 2, 0);
 	insert_edge(g, 0, 3);
@@ -71,7 +75,9 @@ int main() {
 	insert_edge(g, 2, 1);
 	insert_edge(g, 2, 3);
 	insert_edge(g, 3, 2);
-	print_adj_list(g);
+	insert_edge(g, 2, 4);
+	insert_edge(g, 4, 2);
+
+	dfs_list(g, 0);
 	free(g);
-	return 0;
 }
