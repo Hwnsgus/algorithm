@@ -1,6 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+#define TRUE 1
+#define FALSE 0
 #define MAX_VERTICES 10
 
 typedef struct GraphType {
@@ -8,6 +10,7 @@ typedef struct GraphType {
 	int adj_mat[MAX_VERTICES][MAX_VERTICES]; // 10x10 행렬 설정
 } GraphType;
 
+int visited[MAX_VERTICES];
 
 void init(GraphType*g) {
 	
@@ -50,6 +53,18 @@ void print_adj_mat(GraphType* g) {
 
 }
 
+void dfs_mat(GraphType* g, int v) {
+	visited[v]=TRUE;
+	printf("정점 %d ->",v);
+	
+	for (int w = 0; w < g->n; w++){
+		if (g->adj_mat[v][w]==1 && !visited[w]){
+			dfs_mat(g, w);
+		}
+	}
+
+}
+
 int main() {
 	GraphType* g;
 	g = (GraphType*)malloc(sizeof(GraphType));
@@ -64,7 +79,10 @@ int main() {
 	insert_edge(g, 0, 3);
 	insert_edge(g, 1, 2);
 	insert_edge(g, 2, 3);
+	insert_edge(g, 2, 4);
 	print_adj_mat(g);
+
+	dfs_mat(g, 0);
 
 	//정점을 입력 받아 차수를 구하는 함수 getGreed
 

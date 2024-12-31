@@ -74,6 +74,4 @@ int main() {
 	print_adj_list(g);
 	free(g);
 	return 0;
-
-
 }
