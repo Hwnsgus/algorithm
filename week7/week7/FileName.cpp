@@ -3,7 +3,7 @@
 #include <utility>
 #include <map>
 #include <string>
-
+#include <graphviz/cgraph.h>
 
 void drawGraph(const std::vector<int>& nodes, const std::vector<std::pair<int, int>>& edges) {
     Agraph_t* g = agopen((char*)"DirectedGraph", Agdirected, nullptr);
