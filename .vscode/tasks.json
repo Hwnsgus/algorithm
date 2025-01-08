@@ -2,25 +2,27 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: clang 활성 파일 빌드",
-            "command": "/usr/bin/clang",
+            "label": "C/C++: clang++ 활성 파일 빌드",
+            "command": "/usr/bin/clang++",  // clang++로 변경
             "args": [
-                "-fcolor-diagnostics",
-                "-fansi-escape-codes",
-                "-g",
-                "${file}",
+                "-std=c++14",               // C++ 표준 버전 추가
+                "-stdlib=libc++",           // C++ 표준 라이브러리 설정
+                "-fcolor-diagnostics",      // 컬러 출력
+                "-fansi-escape-codes",      // ANSI 코드 출력
+                "-g",                       // 디버깅 정보 포함
+                "${file}",                  // 현재 열려 있는 파일
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}/${fileBasenameNoExtension}" // 출력 파일 경로
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${fileDirname}"    // 작업 디렉토리 설정
             },
             "problemMatcher": [
-                "$gcc"
+                "$gcc"                     // 빌드 문제 매칭
             ],
             "group": {
                 "kind": "build",
-                "isDefault": true
+                "isDefault": true          // 기본 빌드 작업 설정
             },
             "detail": "디버거에서 생성된 작업입니다."
         }
