@@ -1,0 +1,11 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/hwangjunhyun/git/algorithm/week8/Prim'
+relocations:
+  - { offset: 0x26, size: 0x8, addend: 0x0, symName: __Z14get_min_vertexi, symObjAddr: 0x0, symBinAddr: 0x100001FA4, symSize: 0xFC }
+  - { offset: 0x3F, size: 0x8, addend: 0x0, symName: _selectd, symObjAddr: 0xA864, symBinAddr: 0x100010000, symSize: 0x0 }
+  - { offset: 0x6E, size: 0x8, addend: 0x0, symName: _distance, symObjAddr: 0xA9F4, symBinAddr: 0x100010190, symSize: 0x0 }
+  - { offset: 0x7E, size: 0x8, addend: 0x0, symName: __Z14get_min_vertexi, symObjAddr: 0x0, symBinAddr: 0x100001FA4, symSize: 0xFC }
+  - { offset: 0xE2, size: 0x8, addend: 0x0, symName: __Z4primP9GraphTypei, symObjAddr: 0xFC, symBinAddr: 0x1000020A0, symSize: 0x21C }
+  - { offset: 0x142, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x318, symBinAddr: 0x1000022BC, symSize: 0x6C }
+...
