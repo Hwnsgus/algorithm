@@ -15,11 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="heap_sort.cpp">
+    <ClCompile Include="병합정렬.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="시간복잡도.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="기수정렬radix_sort.cpp">
+      <Filter>소스 파일</Filter>
+    </None>
   </ItemGroup>
 </Project>
