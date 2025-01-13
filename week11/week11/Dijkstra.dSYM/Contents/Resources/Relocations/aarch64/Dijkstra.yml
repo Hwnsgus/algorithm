@@ -3,11 +3,11 @@ triple:          'arm64-apple-darwin'
 binary-path:     '/Users/hwangjunhyun/git/algorithm/week11/week11/Dijkstra'
 relocations:
   - { offset: 0x26, size: 0x8, addend: 0x0, symName: __Z6choosePiiS_, symObjAddr: 0x0, symBinAddr: 0x100001E50, symSize: 0xB8 }
-  - { offset: 0x3F, size: 0x8, addend: 0x0, symName: _distance, symObjAddr: 0xAC68, symBinAddr: 0x100010004, symSize: 0x0 }
-  - { offset: 0x6E, size: 0x8, addend: 0x0, symName: _found, symObjAddr: 0xADF8, symBinAddr: 0x100010194, symSize: 0x0 }
+  - { offset: 0x3F, size: 0x8, addend: 0x0, symName: _distance, symObjAddr: 0xACB0, symBinAddr: 0x100010004, symSize: 0x0 }
+  - { offset: 0x6E, size: 0x8, addend: 0x0, symName: _found, symObjAddr: 0xAE40, symBinAddr: 0x100010194, symSize: 0x0 }
   - { offset: 0x77, size: 0x8, addend: 0x0, symName: __Z12print_statusP9GraphType, symObjAddr: 0xB8, symBinAddr: 0x100001F08, symSize: 0x174 }
   - { offset: 0x9C, size: 0x8, addend: 0x0, symName: __ZZ12print_statusP9GraphTypeE4step, symObjAddr: 0x4BC, symBinAddr: 0x100010000, symSize: 0x0 }
   - { offset: 0xF3, size: 0x8, addend: 0x0, symName: __Z6choosePiiS_, symObjAddr: 0x0, symBinAddr: 0x100001E50, symSize: 0xB8 }
   - { offset: 0x181, size: 0x8, addend: 0x0, symName: __Z13shortest_pathP9GraphTypei, symObjAddr: 0x22C, symBinAddr: 0x10000207C, symSize: 0x224 }
-  - { offset: 0x1E1, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x450, symBinAddr: 0x1000022A0, symSize: 0x6C }
+  - { offset: 0x227, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x450, symBinAddr: 0x1000022A0, symSize: 0x6C }
 ...

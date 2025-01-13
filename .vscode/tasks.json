@@ -10,8 +10,9 @@
                 "-fcolor-diagnostics",      // 컬러 출력
                 "-fansi-escape-codes",      // ANSI 코드 출력
                 "-g",                       // 디버깅 정보 포함
-                "${file}",                  // 현재 열려 있는 파일
-                "-o",
+               // "${file}",                  // 현재 열려 있는 파일
+               "${fileDirname}/**.cpp", 
+               "-o",
                 "${fileDirname}/${fileBasenameNoExtension}" // 출력 파일 경로
             ],
             "options": {

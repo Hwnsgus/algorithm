@@ -2,23 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "C++ Debug",
-            "type": "cppdbg",
+            "name": "C++ Launch",
+            "type": "lldb",
             "request": "launch",
             "program": "${workspaceFolder}/assign", // 실행 파일 경로
-            "args": [], // 실행 시 전달할 인자
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": true, // 외부 콘솔에서 입력을 받을 수 있도록 설정
-            "MIMode": "lldb", // macOS에서 기본 디버거는 LLDB
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
+            "args": [],
+            "cwd": "${workspaceFolder}", // 현재 작업 디렉토리
+            "console": "integratedTerminal" // VSCode 통합 터미널 사용
         }
     ]
 }
